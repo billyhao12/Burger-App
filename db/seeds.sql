@@ -10,5 +10,5 @@ VALUES ("Double Cheeseburger", false);
 INSERT INTO burgers
 SET
     burger_name = "Krabby Patty",
-    devoured = true
+    devoured = false
 ;

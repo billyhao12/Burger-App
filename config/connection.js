@@ -1,37 +1,22 @@
-const mysql = require("mysql");
-const config = require("./config");
+// Set up MySQL connection.
+var mysql = require("mysql");
 
-class Connection {
-    constructor() {
-        if (!config.DB_PASSWORD)
-            throw new Error(`Missing database password. Please run "node init"`);
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "SmallwinS1432",
+  database: "burgers_db"
+});
 
-        this.connection = mysql.createConnection({
-            host: config.DB_HOST,
-            port: config.DB_PORT,
-            user: config.DB_USER,
-            password: config.DB_PASSWORD,
-            database: config.DB_NAME
-        });
-    }
+// Make connection.
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
 
-    /**
-     * Connect to the database server using a Promise
-     * @returns {Promise}
-     */
-    connect() {
-        return new Promise((resolve, reject) => {
-            this.connection.connect((err) => {
-                if (err) reject(err);
-                else resolve();
-            });
-        });
-    }
-
-    close() {
-        // Close the connection to the database
-        this.connection.end();
-    }
-}
-
-module.exports = new Connection();
+// Export connection for our ORM to use.
+module.exports = connection;
