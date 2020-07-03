@@ -1,19 +1,17 @@
 const connection = require("./connection");
 
 const orm = {
-    selectAll(columns, tableName) {
-        const queryString = "SELECT ?? FROM ??";
-        connection.query(queryString, [columns, tableName], function(err, result) {
-            if (err) throw err;
-            console.log(result);
+    selectAll(columns, tableName, cb) {
+        connection.query("SELECT ?? FROM ??", [columns, tableName], (err, results) => {
+            if(err) throw err;
+            cb(results);
         });
     },
 
-    insertOne() {
-        const queryString = "INSERT INTO burgers SET burger_name = ?, devoured = ?";
-        connection.query(queryString, function(err, result) {
+    insertOne(tableName, values, cb) {
+        connection.query("INSERT INTO ?? SET ?", [tableName, values], (err, results) => {
             if (err) throw err;
-            console.log(result);
+            cb(results);
         });
     },
 
@@ -24,13 +22,6 @@ const orm = {
         });
     }
 
-    // updateOne(colToUpdate, valOfCol, colToUpdate2, valofCol2, colToFilter, filterColVal) {
-    //     const queryString = "UPDATE burgers SET ?? = ?, ?? = ? WHERE ?? = ?";
-    //     connection.query(queryString, [colToUpdate, valOfCol, colToUpdate2, valofCol2, colToFilter, filterColVal], function(err, result) {
-    //         if (err) throw err;
-    //         console.log(result);
-    //     });
-    // }
 }
 
 module.exports = orm;

@@ -2,16 +2,16 @@ const orm = require("../config/orm");
 
 const burger = {
 
-    all() {
-        orm.selectAll()
+    all(columns, cb) {
+        orm.selectAll(columns, "burgers", cb);
+    },
+
+    create(data, cb) {
+        orm.insertOne("burgers", data, cb);
     },
 
     update() {
         orm.updateOne("burgers", newValues, targetId, cb);
-    },
-
-    create() {
-
     }
 
 }
