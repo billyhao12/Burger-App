@@ -4,8 +4,23 @@
 <ul>
 {{#each burgers}}
 
+    {{#unless devoured}}
     <li>{{burger_name}}</li>
     <button class="devour" data-id="{{id}}">Devour!</button>
+    {{/unless}}
+    
+{{/each}}
+</ul>
+
+<h2>Devoured Burgers</h2>
+<ul>
+{{#each burgers}}
+
+    {{#if devoured}}
+    <li>
+        {{burger_name}}
+    </li>
+    {{/if}}
 
 {{/each}}
 </ul>
@@ -17,13 +32,12 @@
 
 <script>
 
-{{!-- $("#create-burger-form").on("submit", e => {
+$("#create-burger-form").on("submit", (e) => {
 
     e.preventDefault();
 
     const burgerData = {
         burger_name: $('[name="burger-name"]').val()
-        
     };
 
     $.ajax({
@@ -34,7 +48,6 @@
         location.reload();
     });
     
-    console.log(data);
 });
 
 $(".devour").on("click", function() {
@@ -52,6 +65,6 @@ $(".devour").on("click", function() {
         location.reload();
     });
 
-}); --}}
-    
+});
+
 </script>

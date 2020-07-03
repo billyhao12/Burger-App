@@ -16,16 +16,15 @@ router.get("/", (req, res) => {
 
 router.post("/api/burgers", (req, res) => {
 
-    Burger.create(req.body, (results) => {
-        console.log(results);
-        res.json({ id: results.insertId });
+    Burger.create(req.body, (result) => {
+        res.json({ id: result.insertId });
     });
 
 });
 
 router.put("/api/burgers/:id", (req, res) => {
 
-    Burger.update( req.body, req.params.id, (result) => {
+    Burger.update(req.body, req.params.id, (result) => {
         res.end();
     });
 

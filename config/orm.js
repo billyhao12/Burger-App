@@ -15,8 +15,8 @@ const orm = {
         });
     },
 
-    updateOne(tableName, newValue, targetId, cb) {
-        coneection.query("UPDATE ?? SET ? WHERE id = ?", [tableName, newValue, targetId], (err, results) => {
+    updateOne(tableName, newValues, targetId, cb) {
+        connection.query("UPDATE ?? SET ? WHERE id = ?", [tableName, newValues, targetId], (err, results) => {
             if (err) throw err;
             cb(results);
         });
