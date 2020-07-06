@@ -22,6 +22,8 @@ To test the app's functionality in a local environment, first create the burgers
 
 Submit burgers to devour and devour them by clicking the "Devour!" button.
 
+![Screenshot of Application](public/assets/img/screenshot.png)
+
 ## Credits
 
 Built with the support of instructors and colleagues from the UW Coding Boot Camp!
