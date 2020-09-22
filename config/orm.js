@@ -20,6 +20,13 @@ const orm = {
             if (err) throw err;
             cb(results);
         });
+    },
+
+    deleteOne(tableName, targetId, cb) {
+        connection.query("DELETE FROM ?? WHERE id = ?", [tableName, targetId], (err, results) => {
+            if (err) throw err;
+            cb(results);
+        });
     }
 
 }

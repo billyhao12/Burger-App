@@ -30,4 +30,12 @@ router.put("/api/burgers/:id", (req, res) => {
 
 });
 
+router.delete("/api/burgers/:id", (req, res) => {
+
+    Burger.delete(req.params.id, (result) => {
+        res.end();
+    });
+
+});
+
 module.exports = router;

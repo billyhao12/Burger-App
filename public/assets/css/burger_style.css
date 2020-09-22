@@ -24,3 +24,8 @@ img {
 #create-burger-form {
     margin-bottom: 2em;
 }
+
+a.devouredBurgers:hover {
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}

@@ -12,6 +12,10 @@ const burger = {
 
     update(newValues, targetId, cb) {
         orm.updateOne("burgers", newValues, targetId, cb);
+    },
+
+    delete(targetId, cb) {
+        orm.deleteOne("burgers", targetId, cb);
     }
 
 }

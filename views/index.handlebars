@@ -37,12 +37,16 @@
         
         <div class="col-md">
             <h2>Devoured Burgers</h2>
+            <p>(Click a burger to remove from list)</p>
+
             <ul>
             {{#each burgers}}
 
                 {{#if devoured}}
                 <li>
-                    {{burger_name}}
+                    <a class="devouredBurgers" data-id="{{id}}">
+                        {{burger_name}}
+                    </a>
                 </li>
                 {{/if}}
 
@@ -89,6 +93,19 @@ $(".devour").on("click", function() {
         location.reload();
     });
 
+});
+
+$(".devouredBurgers").on("click", function() {
+
+    const burgerId = $(this).data("id");
+    const deleteRoute = "/api/burgers/" + burgerId;
+
+    $.ajax({
+        url: deleteRoute,
+        method: "DELETE"
+    }).then(() => {
+        location.reload();
+    });
 });
 
 </script>
