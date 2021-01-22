@@ -21,7 +21,7 @@ To test the app's functionality in a local environment, first create the burgers
 Example:
 ```
 DB_HOST=localhost
-DB_PORT=1111
+DB_PORT=3306
 DB_USER=root
 DB_PASS=password
 DB_DATABASE=burgers_db
