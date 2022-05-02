@@ -6,7 +6,7 @@ const Burger = require("../models/burger");
 
 router.get("/", (req, res) => {
 
-    Burger.all("*", (results) => {
+    Burger.all('*', (results) => {
         res.render("index", {
             burgers: results
         });
