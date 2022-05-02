@@ -2,8 +2,8 @@ const orm = require("../config/orm");
 
 const burger = {
 
-    all(columns, cb) {
-        orm.selectAll(columns, "burgers", cb);
+    all(id, burgerName, devoured, cb) {
+        orm.selectAll(id, burgerName, devoured, "burgers", cb);
     },
 
     create(data, cb) {
