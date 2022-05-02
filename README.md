@@ -4,7 +4,7 @@ Deployed Application: https://hidden-coast-04312.herokuapp.com/
 
 ## Description
 
-An interactive web page that allows users to submit burgers that they would like to devour. Data is stored in a SQL database.
+An interactive web page that allows users to submit burgers that they would like to devour. Data is stored in a MySQL database.
 
 ## Table of Contents
 
