@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 });
 
 if (process.env.JAWSDB_URL) {
-  console.log('detected JAWSDB_URL in environment variables');
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
