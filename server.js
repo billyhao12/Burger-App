@@ -22,9 +22,7 @@ app.use(burgerRoutes);
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.listen(PORT).on('error', (err) => console.log(err));
-
 // Open the listener to begin listening to requests
-// app.listen( PORT, () => {
-//     console.log( `Listening on PORT: ${PORT}` );
-// });
+app.listen( PORT, () => {
+    console.log( `Listening on PORT: ${PORT}` );
+});
