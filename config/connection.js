@@ -1,10 +1,10 @@
 // Set up MySQL connection.
-var mysql = require("mysql");
+const mysql = require("mysql2");
 
 // Importing local .env file
 require("dotenv").config();
 
-var connection = mysql.createConnection({
+let connection = mysql.createConnection({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
@@ -17,7 +17,7 @@ if (process.env.JAWSDB_URL) {
 }
 
 // Make connection.
-connection.connect(function(err) {
+connection.connect((err) => {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
